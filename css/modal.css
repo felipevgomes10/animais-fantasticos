@@ -1,0 +1,101 @@
+.modal-container {
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: opacity 0.2s;
+}
+
+@supports (-webkit-backdrop-filter: blur()) or (backdrop-filter: blur()) {
+  .modal-container {
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+.modal-container.ativo {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  min-width: 300px;
+  background-color: white;
+  padding: 40px;
+  border: 10px solid #fb5;
+  box-shadow: 0 0 0 10px white;
+  position: relative;
+}
+
+@keyframes modal {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.ativo .modal {
+  animation: modal 0.3s forwards;
+}
+
+.fechar {
+  width: 50px;
+  height: 50px;
+  border: 4px solid white;
+  border-radius: 50%;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
+  background-color: #e54;
+  font-size: 1.2rem;
+  color: white;
+  font-family: "IBM Plex Mono", monospace;
+  cursor: pointer;
+  position: absolute;
+  top: -30px;
+  right: -30px;
+}
+
+.fechar:focus {
+  outline: none;
+}
+
+.modal label {
+  font-family: "IBM Plex Mono", monospace;
+  display: block;
+  font-weight: bold;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.modal input {
+  width: 100%;
+  padding: 0.7rem 0.5rem;
+  box-sizing: border-box;
+}
+
+.modal button[type="submit"] {
+  display: block;
+  background-color: #e54;
+  border: none;
+  border-radius: 4px;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  color: white;
+  font-family: "IBM Plex Mono", monospace;
+  margin-top: 1rem;
+  font-weight: bold;
+}
