@@ -241,8 +241,7 @@ body {
   display: none;
 }
 
-[data-tab="list"] section.show-right,
-[data-tab="list"] section.show-down {
+[data-tab="list"] section.ativo{
   display: block !important;
 }
 
