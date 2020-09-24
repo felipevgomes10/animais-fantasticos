@@ -2,7 +2,7 @@ import ScrollSuave from "./modules/smooth-scroll.js";
 
 import Accordion from "./modules/accordion.js";
 
-import navigationTab from "./modules/nav-tab.js";
+import TabNav from "./modules/nav-tab.js";
 
 import scrollReveal from "./modules/reveal-scroll.js";
 
@@ -25,3 +25,6 @@ scrollSuave.init();
 
 const accordion = new Accordion("[data-anime='accordion'] dt");
 accordion.init();
+
+const tabnav = new TabNav("[data-tab='menu'] li", "[data-tab='list'] section");
+tabnav.init();
