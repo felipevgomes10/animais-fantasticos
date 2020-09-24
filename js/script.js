@@ -1,8 +1,8 @@
 import ScrollSuave from "./modules/smooth-scroll.js";
 
-import navigationTab from "./modules/nav-tab.js";
+import Accordion from "./modules/accordion.js";
 
-import accordion from "./modules/accordion.js";
+import navigationTab from "./modules/nav-tab.js";
 
 import scrollReveal from "./modules/reveal-scroll.js";
 
@@ -22,3 +22,6 @@ import initFetchBitcoin from "./modules/fetch-bitcoin.js";
 
 const scrollSuave = new ScrollSuave('[data-anime="suave"] a[href^="#"]',);
 scrollSuave.init();
+
+const accordion = new Accordion("[data-anime='accordion'] dt");
+accordion.init();
