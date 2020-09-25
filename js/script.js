@@ -4,9 +4,9 @@ import Accordion from "./modules/accordion.js";
 
 import TabNav from "./modules/nav-tab.js";
 
-import scrollReveal from "./modules/reveal-scroll.js";
+import Modal from "./modules/modal.js";
 
-import initModal from "./modules/modal.js";
+import scrollReveal from "./modules/reveal-scroll.js";
 
 import tooltip from "./modules/tooltip.js";
 
@@ -28,3 +28,6 @@ accordion.init();
 
 const tabnav = new TabNav("[data-tab='menu'] li", "[data-tab='list'] section");
 tabnav.init();
+
+const modal = new Modal("[data-modal='abrir'", "[data-modal='fechar']", "[data-modal='container']");
+modal.init();
