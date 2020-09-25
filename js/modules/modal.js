@@ -17,9 +17,8 @@ export default class Modal {
     this.toggleModal();
   }
 
-  cliqueFora(event) {
-    const modal = event.target;
-    if (modal === this.containerModal) {
+  cliqueFora({ target }) {
+    if (target === this.containerModal) {
       this.toggleModal();
     }
   }
