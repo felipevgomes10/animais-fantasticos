@@ -8,7 +8,7 @@ import Modal from "./modules/modal.js";
 
 import scrollReveal from "./modules/reveal-scroll.js";
 
-import tooltip from "./modules/tooltip.js";
+import Tooltip from "./modules/tooltip.js";
 
 import initDropdownMenu from "./modules/dropdown-menu.js";
 
@@ -31,3 +31,6 @@ tabnav.init();
 
 const modal = new Modal("[data-modal='abrir'", "[data-modal='fechar']", "[data-modal='container']");
 modal.init();
+
+const tooltip = new Tooltip("[data-tooltip]");
+tooltip.init();
