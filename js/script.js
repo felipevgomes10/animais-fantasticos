@@ -14,7 +14,7 @@ import fetchAnimais from "./modules/fetch-animais.js";
 
 import ScrollAnima from "./modules/reveal-scroll.js";
 
-import initDropdownMenu from "./modules/dropdown-menu.js";
+import DropdownMenu from "./modules/dropdown-menu.js";
 
 import menuMobile from "./modules/menu-mobile.js";
 
@@ -42,3 +42,6 @@ fetchBitcoin('https://blockchain.info/ticker', '.btc-preco');
 
 const scrollAnima = new ScrollAnima("[data-anime='scroll']");
 scrollAnima.init();
+
+const dropdownMenu = new DropdownMenu("[data-dropdown]");
+dropdownMenu.init();
