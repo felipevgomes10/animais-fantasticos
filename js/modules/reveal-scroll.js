@@ -1,11 +1,14 @@
-export default (function scrollReveal() {
-  const sections = document.querySelectorAll("[data-anime='scroll']");
-  const halfWindow = window.innerHeight * 0.7;
+export default class ScrollAnima {
+  constructor(sections) {
+    this.sections = document.querySelectorAll(sections);
+    this.windowMetade = window.innerHeight * 0.7;
+    this.revealScroll = this.revealScroll.bind(this);
+  }
 
-  function revealScroll() {
-    sections.forEach((section) => {
+  revealScroll() {
+    this.sections.forEach((section) => {
       const sectionTop = section.getBoundingClientRect().top;
-      const isVisible = sectionTop - halfWindow < 0;
+      const isVisible = sectionTop - this.windowMetade < 0;
 
       if (isVisible)
         section.classList.add("ativo");
@@ -14,9 +17,8 @@ export default (function scrollReveal() {
     });
   }
 
-  if (sections.length) {
-    sections[0].classList.add("ativo");
-
-    window.addEventListener("scroll", revealScroll);
+  init() {
+    this.revealScroll();
+    window.addEventListener("scroll", this.revealScroll);
   }
-})();
+}
