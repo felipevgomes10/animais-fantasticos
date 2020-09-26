@@ -1,22 +1,39 @@
-export default (function scrollReveal() {
-  const sections = document.querySelectorAll("[data-anime='scroll']");
-  const halfWindow = window.innerHeight * 0.7;
-
-  function revealScroll() {
-    sections.forEach((section) => {
-      const sectionTop = section.getBoundingClientRect().top;
-      const isVisible = sectionTop - halfWindow < 0;
-
-      if (isVisible)
-        section.classList.add("ativo");
-      else if (section.classList.contains("ativo"))
-        section.classList.remove("ativo");
-    });
+export default class ScrollAnima {
+  constructor(sections) {
+    this.sections = document.querySelectorAll(sections);
+    this.windowMetade = window.innerHeight * 0.7;
+    this.checkDistance = this.checkDistance.bind(this);
   }
 
-  if (sections.length) {
-    sections[0].classList.add("ativo");
-
-    window.addEventListener("scroll", revealScroll);
+  getDistance() {
+    this.distances = [...this.sections].map((section) => {
+      const offset = section.offsetTop;
+      return {
+        element: section,
+        offset: Math.floor(offset - this.windowMetade),
+      };
+    })
   }
-})();
+
+  checkDistance() {
+    this.distances.forEach((section) => {
+      if (window.pageYOffset > section.offset)
+        section.element.classList.add("ativo");
+      else if (section.element.classList.contains("ativo"))
+        section.element.classList.remove("ativo");
+    })
+  }
+
+  init() {
+    if (this.sections.length) {
+      this.getDistance();
+      this.checkDistance();
+      window.addEventListener("scroll", this.checkDistance);
+    }
+    return this;
+  }
+
+  stop() {
+    window.removeEventListener("scroll", this.checkDistance);
+  }
+}
