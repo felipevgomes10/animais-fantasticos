@@ -18,7 +18,7 @@ import DropdownMenu from "./modules/dropdown-menu.js";
 
 import MenuMobile from "./modules/menu-mobile.js";
 
-import initFuncionamento from "./modules/funcionamento.js";
+import Funcionamento from "./modules/funcionamento.js";
 
 
 const scrollSuave = new ScrollSuave('[data-anime="suave"] a[href^="#"]',);
@@ -48,3 +48,6 @@ dropdownMenu.init();
 
 const menuMobile = new MenuMobile("[data-menu='button']", "[data-menu='list']");
 menuMobile.init();
+
+const funcionamento = new Funcionamento("[data-semana]", 'aberto');
+funcionamento.init();
