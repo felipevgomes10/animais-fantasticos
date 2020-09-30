@@ -38,7 +38,7 @@ modal.init();
 const tooltip = new Tooltip("[data-tooltip]");
 tooltip.init();
 
-fetchAnimais('../../animaisapi.json', '.numeros-grid');
+fetchAnimais('https://raw.githubusercontent.com/felipevgomes10/animais-fantasticos/master/animaisapi.json', '.numeros-grid');
 
 fetchBitcoin('https://blockchain.info/ticker', '.btc-preco');
 
