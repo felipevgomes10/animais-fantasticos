@@ -20,6 +20,8 @@ import MenuMobile from "./modules/menu-mobile.js";
 
 import Funcionamento from "./modules/funcionamento.js";
 
+import SlideNav from "./modules/slide.js";
+
 
 const scrollSuave = new ScrollSuave('[data-anime="suave"] a[href^="#"]',);
 scrollSuave.init();
@@ -51,3 +53,8 @@ menuMobile.init();
 
 const funcionamento = new Funcionamento("[data-semana]", 'aberto');
 funcionamento.init();
+
+const slide = new SlideNav('.slide', '.wrapper');
+slide.init();
+slide.addArrow('.prev', '.next');
+slide.addControl('.custom-controls');
